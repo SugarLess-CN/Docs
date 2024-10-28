@@ -79,7 +79,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/SugarLess-CN/SugerlessDocs' }
+      { icon: 'github', link: 'https://github.com/SugarLess-CN/Docs' }
     ],
 
     search: {
