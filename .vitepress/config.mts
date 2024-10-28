@@ -6,7 +6,7 @@ export default defineConfig({
   description: "Sugerless程序使用文档",
   lastUpdated: true,
   cleanUrls: true,
-
+  base: '/Docs/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
@@ -14,7 +14,6 @@ export default defineConfig({
       src: '../logo.webp',
       alt: "Logo图标",
     }, 
-
     nav: [
       { text: '文档', link: '/' },
       { text: '演示', link: '/demo' },
