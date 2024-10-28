@@ -11,7 +11,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
 
     logo: {
-      src: '../logo.webp',
+      src: './logo.webp',
       alt: "Logo图标",
     }, 
     nav: [
