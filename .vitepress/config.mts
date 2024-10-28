@@ -6,7 +6,7 @@ export default defineConfig({
   description: "Sugerless程序使用文档",
   lastUpdated: true,
   cleanUrls: true,
-  base: '/Docs/',
+  base: '/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
