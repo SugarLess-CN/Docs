@@ -7,7 +7,7 @@ hero:
   text: "前后端分离轻社区系统"
   tagline: "A Light Community System"
   image:
-    src: ../logo.webp
+    src: ./logo.webp
   actions:
     - theme: brand
       text: 程序介绍
