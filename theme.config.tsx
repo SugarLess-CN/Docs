@@ -2,14 +2,11 @@ import React from 'react'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router';
 
-interface CustomDocsThemeConfig extends DocsThemeConfig {
-  frontMatter?: {
-    description?: string;
-  };
-}
-
-const config: CustomDocsThemeConfig = {
-  // ... existing code ...
+const config: DocsThemeConfig = {
+  logo: <div style={{display: "flex", alignItems: "center", gap: "4px"}}>
+    <img src={"./logo.png"} width={32} height={32} alt="Sugarless Logo"/>
+    <span>Sugarless</span>
+  </div>,
   head: function useHead() {
     const {title} = useConfig()
     const image = 'https://docs.i-hentai.cc/logo.png'
