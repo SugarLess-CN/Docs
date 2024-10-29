@@ -10,9 +10,9 @@ const config: DocsThemeConfig = {
   head: function useHead() {
     const {title} = useConfig()
     const image = 'https://docs.i-hentai.cc/logo.png'
-
+    const { frontMatter } = useConfig()
     const description =
-      (config.frontMatter && config.frontMatter.description) ||
+      frontMatter?.description ||
       'Sugarless是一个前后端分离社区系统，基于Nuxt.js'
     return (
       <>
