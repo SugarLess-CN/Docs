@@ -1,0 +1,121 @@
+# Docker 部署
+
+import { Card, Cards, Callout, Steps } from 'nextra/components'
+import { UilExternalLinkAlt } from '@components/Icons/ExternalLinkAlt'
+import { UilArrowCircleUp } from '@components/Icons/ArrowCircleUp'
+
+<Steps>
+## 安装 Docker
+
+如果你的服务器在国内，可使用LinuxMirror的脚本快速安装Docker，安装命令如下：
+
+```bash
+bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+```
+
+服务器在海外地区，可以直接使用官方脚本安装：
+
+```bash
+curl -fsSL https://get.docker.com | bash -s docker
+```
+
+如果您成功安装了 Docker 和 Docker-Compose，可以通过以下命令查看版本：
+
+```bash
+docker -v
+
+docker compose version
+```
+
+## 拉取配置文件
+
+<Callout type="warning" emoji="⚠️">
+目前 Docker 镜像为私有仓库存储，你需要先联系相关成员[Mikuの鬆](https://www.sotkg.com)将你拉入私有存储镜像库后才能使用官方 Docker 镜像。
+</Callout>
+
+```bash
+cd && mkdir -p sugarless/api && cd $_
+
+# 拉取 docker-compose.yml 文件
+wget https://fastly.jsdelivr.net/gh/SugarLess-CN/Script@main/api/docker-compose.yml
+```
+
+## 配置 Api 启动配置文件
+
+在下方的表格里填入你的配置，然后点击下方的复制，在放置 `docker-compose.yml` 的目录下新建`.env`文件，粘贴进去保存即可。
+
+> 鼠标悬停在下方的表格中，可以查看对应的配置项变量名。
+
+import { EnvVariableConfig } from '@components/EnvVariableConfig'
+
+<EnvVariableConfig
+  format="json"
+  variableNames={[
+    {
+      key: 'MYSQL_HOST',
+      name: '[数据库地址] 数据库地址，默认sugerless-db',
+      defaultVal: 'sugerless-db',     
+    },
+    {
+      key: 'MYSQL_PORT',
+      name: '[数据库端口] 数据库端口，默认为3306',
+      defaultVal: '3306',
+    },
+    {
+      key: 'MYSQL_USERNAME',
+      name: '[数据库用户] 数据库用户，默认为sugerless',
+      defaultVal: 'sugerless',
+    },
+    {
+      key: 'MYSQL_PASSWORD',
+      name: '[数据库密码] 数据库密码，可自行修改为更复杂的信息',
+      defaultVal: '123456',
+    },
+    {
+      key: 'MYSQL_DATABASE',
+      name: '[数据库名称] 数据库名称，默认为sugerless',
+      defaultVal: 'sugerless',
+    },
+    {
+      key: 'JWT_SECRET',
+      name: '[JWT 密钥] 长度不小于 16 个字符，不大于 32 个字符',
+    },
+    {
+      key: 'JWT_EXPIRES_IN',
+      name: '[Token到期时间] 默认为360天',
+      defaultVal: '360d',
+    },
+  ]}
+/>
+<Callout type="warning">
+**`JWT 密钥`**：需要填写长度不小于 16 个字符，不大于 32 个字符的字符串，用于加密用户的 JWT，务必保存好自己的密钥，不要泄露给他人。
+
+</Callout>
+
+## 启动后端
+
+```bash
+docker compose up -d
+```
+
+## 完成
+
+至此，你已完成了后端的部署工作。
+
+剩下的就是你的事了，你可以使用 [Nginx](https://nginx.org/en/download.html) 或者 [Caddy](https://caddyserver.com/download) 等反向代理工具，也可以使用 [Cloudflare](https://www.cloudflare.com/) 等 CDN 服务。本文不再赘述。
+
+除此之外，如引言所述还需要部署一个**前端**，请参考 [前端文档](https://docs.i-hentai.cc/themes) 继续完成部署前端主题的步骤。
+
+</Steps>
+
+## 相关链接
+
+<Cards num={2}>
+  <Card
+    arrow
+    title="前端部署"
+    href="/themes"
+    icon={<UilExternalLinkAlt />}
+  />
+  <Card arrow title="使用指南" href="/usage" icon={<UilArrowCircleUp />} />
+</Cards>

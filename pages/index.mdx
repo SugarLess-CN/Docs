@@ -1,0 +1,261 @@
+---
+title: Sugarless - A Light Community System.
+---
+
+import Link from 'next/link'
+import cn from 'clsx'
+import { useState } from 'react'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { Features, Feature } from '@components/features'
+import styles from './index.module.css'
+import docsCard from '../public/demo.png'
+import docsCardDark from '../public/demo.png'
+
+<div className="home-content">
+  <div className="content-container">
+    <h1 className="headline">Create your own <br className='sm:block hidden'/>Community with Sugarless.</h1>
+    <p className="subtitle">前后端分离，美观、强大的轻社区系统。</p>
+    <p className="subtitle">
+      <Link className={styles.cta} href="/docs">5 分钟建立 Sugarless <span>→</span></Link>
+    </p>
+  </div>
+<style jsx>{`
+  .content-container {
+    max-width: 90rem;
+    padding-left: max(env(safe-area-inset-left), 1.5rem);
+    padding-right: max(env(safe-area-inset-right), 1.5rem);
+    margin: 0 auto;
+  }
+  .features-container {
+    margin: 8rem 0 0;
+    padding: 4rem 0;
+    background-color: #f3f4f6;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .features-container .content-container {
+    margin-top: -8rem;
+  }
+  :global(.dark) .features-container {
+    background-color: #000;
+    border-bottom: 1px solid rgb(38, 38, 38);
+  }
+  .headline {
+    display: inline-block;
+    font-size: 3.125rem;
+    font-size: min(4.375rem, max(8vw, 2.5rem));
+    font-weight: 700;
+    font-feature-settings: initial;
+    letter-spacing: -0.12rem;
+    margin-left: -0.2rem;
+    margin-top: 3.4rem;
+    line-height: 1.1;
+    background-image: linear-gradient(146deg, #000, #757a7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  :global(.dark) .headline {
+    background-image: linear-gradient(146deg, #fff, #757a7d);
+  }
+  .subtitle {
+    font-size: 1.3rem;
+    font-size: min(1.3rem, max(3.5vw, 1.2rem));
+    font-feature-settings: initial;
+    line-height: 1.6;
+  }
+  .nextjs-link {
+    color: currentColor;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  :global(#docs-card) {
+    color: #fff;
+    text-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  }
+  :global(#docs-card img) {
+    object-fit: cover;
+    object-position: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+  :global(#docs-card img:nth-child(2)) {
+    display: none;
+  }
+  :global(.dark #docs-card img:nth-child(2)) {
+    display: initial;
+  }
+  :global(.dark #docs-card img:nth-child(1)) {
+    display: none;
+  }
+  :global(.feat-darkmode) {
+    min-height: 300px;
+  }
+  :global(.feat-darkmode h3) {
+    font-size: 48px;
+  }
+  :global(#search-card) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  :global(#search-card p) {
+    max-width: 320px;
+  }
+  :global(#search-card video) {
+    position: absolute;
+    right: 0;
+    top: 24px;
+    height: 430px;
+    pointer-events: none;
+    max-width: 60%;
+  }
+  :global(#fs-card) {
+    min-height: 240px;
+  }
+  :global(#fs-card h3) {
+    text-align: left;
+    width: min(300px, 41%);
+    min-width: 155px;
+  }
+  :global(#a11y-card) {
+    background-image: url(/assets/high-contrast.png);
+    background-position: -160px 160px;
+  }
+  @media screen and (max-width: 1300px) {
+    :global(#a11y-card) {
+      background-image: linear-gradient(to bottom, white, transparent),
+        url(/assets/high-contrast.png);
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    :global(#highlighting-card) {
+      aspect-ratio: auto;
+    }
+    :global(.feat-darkmode h3) {
+      font-size: 4vw;
+      font-size: min(48px, max(4vw, 30px));
+    }
+    :global(#search-card video) {
+      aspect-ratio: 787/623;
+      height: auto;
+    }
+    .headline {
+      letter-spacing: -0.08rem;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    :global(#docs-card) {
+      aspect-ratio: 135/86;
+    }
+    :global(#search-card) {
+      aspect-ratio: 8/3;
+    }
+    :global(#search-card h3) {
+      text-align: left;
+    }
+    :global(#highlighting-card) {
+      background-size: 136%;
+    }
+    :global(#a11y-card) {
+      background-image: url(/assets/high-contrast.png);
+      background-position: center 160px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    :global(#docs-card) {
+      min-height: 348px;
+      width: 100%;
+      aspect-ratio: auto;
+    }
+    :global(#docs-card img) {
+      object-position: -26px 0;
+      width: 250%;
+      max-width: initial;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    :global(#search-card) {
+      aspect-ratio: 2.5/2;
+      justify-content: flex-start;
+      align-items: stretch;
+      min-height: 350px;
+    }
+    :global(#search-card h3) {
+      text-align: center;
+    }
+    :global(#search-card p) {
+      max-width: 100%;
+    }
+    :global(#search-card video) {
+      position: relative;
+      margin: 0.75em -1.75em 0;
+      max-width: calc(100% + 3.5em);
+    }
+    :global(.dark #search-card video) {
+      mix-blend-mode: lighten;
+    }
+  }
+`}</style>
+
+  <div className="features-container">
+    <div className="content-container">
+      <Features>
+        <Feature index={0} large centered id="docs-card" href="/docs">
+          <Image src={docsCard} alt="Background" loading="eager" />
+          <Image src={docsCardDark} alt="Background (Dark)" loading="eager" />
+        </Feature>
+        <Feature index={1} centered className="card-with-border" href="/docs/why">
+          <div className="h-full flex flex-col justify-between">
+            <h3>前端后端<br className="show-on-mobile"/>分离<span style={{ fontWeight: 300 }}>部署</span>.</h3>
+            <div className='text-left mb-8'>
+            Sugarless 采用前后端分离设计，可分别部署在不同终端，使您的社区更加稳定、可扩展和可维护。
+            </div>
+            <div>
+              <div className={styles.optimization}>
+                <div style={{ fontSize: '.9rem' }} className="leading-8">
+                  <code>{`[Site(User,Auth,Console,Theme)]`}</code>
+                  <br />
+                  <code>{`> 前后端聚合于一体, 一旦崩溃全部功能下线 `}</code>
+                </div>
+              </div>
+              <div className="flex justify-center text-neutral-400 my-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" viewBox="0 0 20 20" fill="currentColor" className="rotate-90">
+                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className={styles.optimization}>
+                <div style={{ fontSize: '.9rem' }} className="leading-8">
+                  <code>{`[Front(Theme)][Backend(Console,User)]`}</code>
+                  <br />
+                  <code>{`> 前后端独立部署, 不会全部一次性崩溃 `}</code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Feature>
+
+        <Feature index={3} href="/services/render-service">
+          <h3>先进的<br className="show-on-mobile"/>应用渲染解决方案。</h3>
+          <div>
+            Nuxt.js支持服务端渲染，这意味着应用的首屏加载速度更快，用户体验更优秀。
+            
+            同时，服务端渲染还有助于提高应用的可访问性和SEO性能。
+          </div>
+        </Feature>
+        <Feature index={6}>
+          <h3>更多特性...</h3>
+          <p>媒体快速嵌入 / 对接云存储 / 强大一体化仪表盘... <strong><i>更多新特性等待您的探索。</i></strong></p>
+          <p className="subtitle"><Link className="!no-underline" href="/docs">现在就部署 Sugarless 吧！→</Link></p>
+        </Feature>
+      </Features>
+    </div>
+  </div>
+</div>

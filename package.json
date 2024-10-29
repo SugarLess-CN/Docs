@@ -1,13 +1,42 @@
 {
-  "devDependencies": {
-    "vitepress": "^1.4.1"
-  },
+  "name": "sugarless-docs",
+  "version": "0.0.1",
+  "description": "MixSpace Documentation for sugarless",
   "scripts": {
-    "dev": "vitepress dev --host",
-    "build": "vitepress build",
-    "preview": "vitepress preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SugarLess-CN/Docs.git"
+  },
+  "author": "Shu Ding <g@shud.in>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SugarLess-CN/Docs/issues"
+  },
+  "homepage": "https://github.com/SugarLess-CN/Docs#readme",
   "dependencies": {
-    "vue": "^3.5.12"
+    "@openpanel/nextjs": "0.0.6-beta",
+    "@vercel/og": "^0.5.20",
+    "autoprefixer": "^10.4.16",
+    "clsx": "^2.0.0",
+    "copy-to-clipboard": "^3.3.3",
+    "framer-motion": "^10.16.5",
+    "next": "^13.3.0",
+    "nextra": "latest",
+    "nextra-theme-docs": "latest",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "20.9.3",
+    "@types/react": "^18.2.38",
+    "gray-matter": "^4.0.3",
+    "rss": "^1.2.2",
+    "typescript": "^5.3.2"
   }
 }
