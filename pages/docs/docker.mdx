@@ -1,6 +1,6 @@
 # Docker 部署
 
-import { Card, Cards, Callout, Steps } from 'nextra/components'
+import { Cards, Callout, Steps } from 'nextra/components'
 import { UilExternalLinkAlt } from '@components/Icons/ExternalLinkAlt'
 import { UilArrowCircleUp } from '@components/Icons/ArrowCircleUp'
 
@@ -111,11 +111,11 @@ docker compose up -d
 ## 相关链接
 
 <Cards num={2}>
-  <Card
+  <Cards.Card
     arrow
     title="前端部署"
     href="/themes"
     icon={<UilExternalLinkAlt />}
   />
-  <Card arrow title="使用指南" href="/usage" icon={<UilArrowCircleUp />} />
+  <Cards.Card arrow title="使用指南" href="/usage" icon={<UilArrowCircleUp />} />
 </Cards>

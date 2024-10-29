@@ -32,7 +32,7 @@ SugarLess是为社区/博客/论坛提供解决方案的一整套项目体系。
 我们提供了三种部署方式，并且社区也提供了更多的部署方式，你可以根据自己的喜好选择一种部署方式。
 </Callout>
 
-import { Card, Cards, Callout } from 'nextra/components';
+import { Cards, Callout } from 'nextra/components';
 import { UimDocker } from '@components/Icons/Docker';
 import { UilPaintTool } from '@components/Icons/PaintTool';
 import { UimStar } from '@components/Icons/Star';
@@ -40,16 +40,16 @@ import { FluentPeopleCommunity } from '@components/Icons/PeopleCommunity';
 import { UilExternalLinkAlt } from '@components/Icons/ExternalLinkAlt';
 
 <Cards num={2}>
-  <Card arrow title="Docker 部署 （推荐）" href="/docs/docker" icon={<UimDocker />} />
-  <Card arrow title="进阶部署" href="/docs/advanced" icon={<UimStar />} />
-  <Card arrow title="社区部署教程" href="/docs/community" icon={<FluentPeopleCommunity />} />
-  <Card arrow title="相关内容" href="/docs/extra" icon={<UilExternalLinkAlt />} />
+  <Cards.Card arrow title="Docker 部署 （推荐）" href="/docs/docker" icon={<UimDocker />} />
+  <Cards.Card arrow title="进阶部署" href="/docs/advanced" icon={<UimStar />} />
+  <Cards.Card arrow title="社区部署教程" href="/docs/community" icon={<FluentPeopleCommunity />} />
+  <Cards.Card arrow title="相关内容" href="/docs/extra" icon={<UilExternalLinkAlt />} />
 </Cards>
 
 还有更多部署方式吗？欢迎您向文档提交 [Pull Request](https://github.com/mx-space/docs/pulls) 以分享您的部署方式。按上方**后端部署文档**完成你的部署后，你可以通过下面的方式继续部署 Sugarless **前端** *（为什么分开部署？请查看 [一些你需要知道的事情](#一些你需要知道的事情)）*
 
 <Cards num={1}>
-  <Card arrow title="浏览前端主题" href="/themes" />
+  <Cards.Card arrow title="浏览前端主题" href="/themes" />
 </Cards>
 
 

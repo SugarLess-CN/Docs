@@ -5,9 +5,6 @@ const withNextra = nextra({
   themeConfig: './theme.config.tsx',
   staticImage: true,
   latex: true,
-  flexsearch: {
-    codeblocks: false
-  },
   defaultShowCopyCode: true
 })
 
