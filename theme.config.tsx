@@ -1,6 +1,6 @@
 import React from 'react'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 const logo = (
   <span>
     <img
@@ -39,31 +39,24 @@ const logo = (
 const config: DocsThemeConfig = {
   logo,
   head: function useHead() {
-    const { title } = useConfig()
+    const {title} = useConfig()
+    const image = 'https://docs.i-hentai.cc/logo.png'
 
+    const description =
+    (config.frontMatter &&  config.frontMatter.description) ||
+      'Sugarless是一个前后端分离社区系统，基于Nuxt.js'
     return (
       <>
-        <link rel="dns-prefetch" href="//pan.vinua.cn" />
-        <meta name="msapplication-TileColor" content="#fff" />
-        <meta name="theme-color" content="#fff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <meta
-          name="description"
-          content="A Light Community System."
-        />
-        <meta
-          name="og:description"
-          content="A Light Community System."
-        />
-        <meta
-          name="og:title"
-          content={title ? title + ' | Sugarless' : 'Sugarless'}
-        />
-        {/* <meta name="og:image" content={socialCard} /> */}
-        <meta name="apple-mobile-web-app-title" content="Sugarless" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <title>{title}</title>
+        <meta property="og:title" content={title}/>
+        <meta name="description" content={description}/>
+        <meta property="og:description" content={description}/>
+        <meta property="og:image" content={image}/>
+
+        <meta name="msapplication-TileColor" content="#B2A711"/>
+        <meta name="theme-color" content="#B2A711"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" href="/logo.png" type="image/png"/>
       </>
     )
   },
@@ -72,26 +65,20 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/SugarLess-CN/Docs/blob/main',
   footer: {
-    text: (
+    content: (
       <div className="flex w-full flex-col items-center sm:items-start">
-        <p className="text-xs">
-          © {new Date().getFullYear()} 2024-present Sugarless-CN Team
+        <p className="mt-6 text-xs">
+          © {new Date().getFullYear()} Sugarless-CN
         </p>
       </div>
     ),
   },
-  useNextSeoProps() {
-    const { asPath } = useRouter()
-    if (asPath !== '/') {
-      return {
-        titleTemplate: '%s | Sugarless',
-      }
-    }
-  },
   editLink: {
-    text: 'Edit this page on GitHub →',
+    content: 'Edit this page on GitHub →'
   },
-  banner: {
+  feedback: {
+    content: 'Question? Give us feedback →',
+    labels: 'feedback'
   },
 }
 
