@@ -33,4 +33,4 @@ pnpm run start
 
 ## Author
 
-docs © Sugarless Team, Released under MIT. Created on Jul 9, 2023
+Docs © Sugarless Team
