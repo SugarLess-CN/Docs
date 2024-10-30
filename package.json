@@ -24,7 +24,7 @@
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
     "framer-motion": "^11.0.0",
-    "next": "^13.5.7",
+    "next": "^14.0.0",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
     "postcss": "^8.4.47",
