@@ -2,9 +2,6 @@ export default {
   index: {
     title: "引言"
   },
-  features: {
-    title: "额外信息"
-  },
   "-- advanced": {
     type: "separator",
     title: "部署"
