@@ -19,7 +19,7 @@
   "homepage": "https://github.com/SugarLess-CN/Docs#readme",
   "dependencies": {
     "@openpanel/nextjs": "0.0.6-beta",
-    "@vercel/og": "^0.5.20",
+    "@vercel/og": "^0.6.0",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
