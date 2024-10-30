@@ -1,92 +1,75 @@
-import { Cards } from 'nextra/components'
+# Saikono 
 
-# Saikono 主题
+**Saikono** 基于Nuxt.js，为 **Sugarless** 的前端部分，由[无糖冰沙](https://github.com/coruni)开发和版权所有。
 
-## Demo
+<Callout type="warning" emoji="⚠️">
+目前程序暂不考虑开源，你可以联系无糖冰沙（QQ：1292778464）获取测试版。
+</Callout>
+
+程序整体设计借鉴了[HoyoLab](https://www.hoyolab.com)社区。
+
+<Callout type="warning">
+在本章节，我们将完成的是 **前端** 的安装，而 **后端** 的安装则需要你阅读 [后端安装文档](/docs)。
+</Callout>
+
+<Callout type="info">
+为什么分开部署？请查看本页 [一些你需要知道的事情](#一些你需要知道的事情) 小节。
+</Callout>
+
+## 系统要求
+
+- **Linux**
+- Linux 内核版本 >= **4.19**
+- Memory >= **1G**
+
+## 快速开始
+
+<Callout>
+我们提供了两种部署方式，并且社区也提供了更多的部署方式，你可以根据自己的喜好选择一种部署方式。
+</Callout>
+
+import { Cards, Callout } from 'nextra/components';
+import { UimDocker } from '@components/Icons/Docker';
+import { UilPaintTool } from '@components/Icons/PaintTool';
+import { UimStar } from '@components/Icons/Star';
+import { FluentPeopleCommunity } from '@components/Icons/PeopleCommunity';
+import { UilExternalLinkAlt } from '@components/Icons/ExternalLinkAlt';
 
 <Cards num={2}>
-  <Cards.Card
-    arrow
-    href="https://i-hentai.cc"
-    title="无糖次元社区"
-    icon={<img src="./logo.png" width={'25em'} />}
-  />
+  <Cards.Card arrow title="Docker 部署 （推荐）" href="/themes/docker" icon={<UimDocker />} />
+  <Cards.Card arrow title="进阶部署" href="/themes/advanced" icon={<UimStar />} />
+  <Cards.Card arrow title="社区部署教程" href="/themes/community" icon={<FluentPeopleCommunity />} />
 </Cards>
 
-## 前提要求
+还有更多部署方式吗？欢迎您向文档提交 [Pull Request](https://github.com/SugarLess-CN/Docs/pulls) 以分享您的部署方式。
 
-- 你已安装 Sugarless 后端并且已启动
+（为什么分开部署？请查看 [一些你需要知道的事情](#一些你需要知道的事情)）
 
-## 准备步骤
+## 一些你需要知道的事情
 
-import { Steps } from 'nextra/components'
+### 遇到报错怎么办？
 
-export function FAQBox({ title, children }) {
-  return (
-    <details
-      className="last-of-type:mb-0 rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2 mt-4"
-    >
-      <summary>
-        <strong className="text-lg">{title}</strong>
-      </summary>
-      <div className="nx-p-2">{children}</div>
-    </details>
-  )
-}
+新时代新风气，我们遇到了一个人工智能蓬勃发展的时代，所以在你遇到了问题的时候请**先询问** `Bing AI`, `ChatGPT` 等人工智能，它们会帮助你解决大部分问题。
 
-<Steps>
+如果你遇到了一些**人工智能解决不了**的问题，那么请**再次阅读文档**，如果文档依旧没有解决你的问题，那么请在**对应仓库**的 **GitHub Issues** 中提出你的问题，我们会尽快解决。
 
-## 获取主题文件
+### Sugarless 的组成结构
 
-```bash
-cd && mkdir -p sugarless/saikono && cd $_
+import { FileTree } from 'nextra/components'
 
-# 拉取 docker-compose.yml 文件
-wget https://fastly.jsdelivr.net/gh/SugarLess-CN/Script@main/saikono/docker-compose.yml
-```
+<FileTree>
+  <FileTree.Folder name="Sugarless 系统结构" defaultOpen>
+    <FileTree.Folder name="后端（一般也称为「服务端、Server 端」）" />
+    <FileTree.Folder name="前端（一般也称为「客户端、网页端、Web 端」）" />
+  </FileTree.Folder>
+</FileTree>
 
-## 配置环境变量
+所以，**Sugarless** 由两部分组成：**后端** 和 **前端**。如果你没法理解的话，建议询问 Bing AI, ChatGPT 等人工智能以此来了解它们、以及知道它们的区别。[（比如这样询问 ChatGPT）](https://chat.openai.com/share/4bfea955-aeef-4140-98d7-483bc29ec5cb)
 
-在下方的配置表格中，填入你的环境变量，然后点击复制按钮，复制并新建粘贴到主题目录下`.env`文件内保存。
+总之你需要知道的便是：这不是像 **Flarum**、**NodeBB** 这样的「一步曲」就搞定的系统，而是需要 **「两步曲」** 才能完成安装。
 
-import { EnvVariableConfig } from '@components/EnvVariableConfig'
+<Callout>
+但万幸的是，我们开发者已经为你准备好了一切，你只需要按照文档**推荐的步骤**来操作即可，即使你不是开发者，也可以轻松完成安装。
+</Callout>
 
-<EnvVariableConfig
-  variableNames={[
-    {
-      key: 'NUXT_PUBLIC_API_BASE_URL',
-      name: '后端 API 地址',
-    },
-    {
-      key: 'NUXT_PUBLIC_SITE_BASE_URL',
-      name: '前端地址',
-    },
-    {
-      key: 'NUXT_PUBLIC_SITE_NAME',
-      name: '站点名称',
-    },
-  ]}
-/>
-
-</Steps>
-
-## 启动后端
-
-```bash
-docker compose up -d
-```
-
-## 完成！
-
-至此，你已完成了 Saikono 主题的部署。
-
-剩下的就是你的事了，你可以使用 [Nginx](https://nginx.org/en/download.html) 或者 [Caddy](https://caddyserver.com/download) 等反向代理工具，也可以使用 [Cloudflare](https://www.cloudflare.com/) 等 CDN 服务。本文不再赘述。
-
-<style global jsx>{`
-  .nextra-cards img {
-    border-radius: 50%;
-  }
-  .nextra-content pre {
-    max-height: 50vh;
-  }
-`}</style>
+知道了这些，你就可以避免掉大部分的问题了，开始安装体验吧！

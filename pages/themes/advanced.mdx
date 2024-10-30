@@ -1,0 +1,69 @@
+# 进阶部署
+
+import { Callout } from 'nextra/components'
+
+<Callout type="error">
+在您进行进阶部署前，我们给予最后的警告：如果你**不是开发者**，或者**不想折腾**，请不要选择**进阶部署**，因为它需要你具备一定的开发能力。
+
+由于自身技术原因导致的问题，我们将**不会提供任何技术支持**。情节严重者，我们将**永久拉黑**您的账号。
+
+</Callout>
+
+## 要求
+
+- 已安装 [Node.js](https://nodejs.org/zh-cn/) 20.0.0 或以上版本
+- 已安装 [Git](https://git-scm.com/downloads), [PM2](https://pm2.keymetrics.io/docs/usage/quick-start/)
+- 已安装 SugarLess 后端并正常运行
+
+import { Steps } from 'nextra/components'
+
+<Steps>
+## 1. 克隆并安装
+
+```bash
+git clone https://github.com/SugarLess-CN/sugarlessweb --depth=1
+npm install
+```
+
+
+## 2. 配置环境变量
+
+在下方的表格里填入你的配置，然后点击下方的复制，粘贴修改目录下的`.env.production`文件。
+
+import { EnvVariableConfig } from '@components/EnvVariableConfig'
+
+<EnvVariableConfig
+  variableNames={[
+    {
+      key: 'NUXT_PUBLIC_API_BASE_URL',
+      name: '后端 API 地址',
+    },
+    {
+      key: 'NUXT_PUBLIC_SITE_BASE_URL',
+      name: '前端地址',
+    },
+    {
+      key: 'NUXT_PUBLIC_SITE_NAME',
+      name: '站点名称',
+    },
+    {
+      key: 'NITRO_PORT',
+      name: '服务端口',
+    },
+  ]}
+/>
+
+
+
+## 3. 启动前端
+
+```bash 
+pm2 start npm --name "saikono" -- start 
+```
+
+## 4. 反向代理 or ...
+
+剩下的就是你的事了，你可以使用 [Nginx](https://nginx.org/en/download.html) 或者 [Caddy](https://caddyserver.com/download) 等反向代理工具，也可以使用 [Cloudflare](https://www.cloudflare.com/) 等 CDN 服务。本文不再赘述。
+
+</Steps>
+

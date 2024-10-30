@@ -9,10 +9,10 @@ export default {
   },
   docs: {
     type: "page",
-    title: "部署文档"
+    title: "后端部署"
   },
   themes: {
     type: "page",
-    title: "前端主题"
+    title: "前端部署"
   }
 };
