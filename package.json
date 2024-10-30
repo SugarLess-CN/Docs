@@ -34,7 +34,7 @@
     "tailwindcss": "^3.4.14"
   },
   "devDependencies": {
-    "@types/node": "20.17.3",
+    "@types/node": "22.8.4",
     "@types/react": "^18.3.12",
     "gray-matter": "^4.0.3",
     "rss": "^1.2.2",
